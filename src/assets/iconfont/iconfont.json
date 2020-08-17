@@ -1,0 +1,184 @@
+{
+  "id": "2009840",
+  "name": "eleAdmin",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "vue-element-admin",
+  "glyphs": [
+    {
+      "icon_id": "16195477",
+      "name": "天气",
+      "font_class": "tianqi",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "16210785",
+      "name": "便签",
+      "font_class": "bianqian",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "16210786",
+      "name": "系统更新",
+      "font_class": "xitonggengxin",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "16210787",
+      "name": "播放器",
+      "font_class": "bofangqi",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "16210788",
+      "name": "资讯",
+      "font_class": "zixun",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "16210789",
+      "name": "应用商店",
+      "font_class": "yingyongshangdian",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "16211068",
+      "name": "读书",
+      "font_class": "dushu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "16211069",
+      "name": "文件管理",
+      "font_class": "wenjianguanli",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "16212551",
+      "name": "电话",
+      "font_class": "dianhua",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "16212552",
+      "name": "生活服务",
+      "font_class": "shenghuofuwu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "16212621",
+      "name": "浏览器",
+      "font_class": "liulanqi",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "16212887",
+      "name": "地图",
+      "font_class": "ditu",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "16216415",
+      "name": "用户帮助",
+      "font_class": "yonghubangzhu",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "16216416",
+      "name": "语音",
+      "font_class": "yuyin",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "16216417",
+      "name": "邮件",
+      "font_class": "youjian",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "16216418",
+      "name": "游戏",
+      "font_class": "youxi",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "16278155",
+      "name": "手机管家",
+      "font_class": "shoujiguanjia",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "16284044",
+      "name": "主题中心",
+      "font_class": "zhutizhongxin",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "16289415",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "16298401",
+      "name": "录音",
+      "font_class": "luyin",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "16321629",
+      "name": "音乐",
+      "font_class": "yinle",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "16192828",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "16193641",
+      "name": "日历",
+      "font_class": "rili",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "16194503",
+      "name": "计算机",
+      "font_class": "jisuanji",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "16194736",
+      "name": "相机",
+      "font_class": "xiangji",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    }
+  ]
+}

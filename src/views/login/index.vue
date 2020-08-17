@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">Login Form <IconSvg icon-class="iconzixun" /></h3>
       </div>
 
       <el-form-item prop="username">
@@ -76,10 +76,11 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
+import IconSvg from '@/components/Iconfont'
 
 export default {
   name: 'Login',
-  components: { SocialSign },
+  components: { SocialSign, IconSvg },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
