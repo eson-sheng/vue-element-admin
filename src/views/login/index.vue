@@ -1,105 +1,85 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
+    <div class="login-div">
+      <img class="img-logo" src="logo.png">
+      <el-form ref="loginForm" :model="loginForm" :rules="loginRules" autocomplete="on" label-position="left">
+        <div class="title-container">
+          <h3 class="title">云养老后台管理系统</h3>
+        </div>
 
-      <div class="title-container">
-        <h3 class="title">Login Form <IconSvg icon-class="iconzixun" /></h3>
-      </div>
-
-      <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
-        <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          tabindex="1"
-          autocomplete="on"
-        />
-      </el-form-item>
-
-      <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
-        <el-form-item prop="password">
+        <el-form-item prop="username">
           <span class="svg-container">
-            <svg-icon icon-class="password" />
+            <svg-icon icon-class="user" />
           </span>
           <el-input
-            :key="passwordType"
-            ref="password"
-            v-model="loginForm.password"
-            :type="passwordType"
-            placeholder="Password"
-            name="password"
-            tabindex="2"
+            ref="username"
+            v-model="loginForm.username"
+            placeholder="请输入账号/手机号"
+            name="username"
+            type="text"
+            tabindex="1"
             autocomplete="on"
-            @keyup.native="checkCapslock"
-            @blur="capsTooltip = false"
-            @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
-            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
-          </span>
         </el-form-item>
-      </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+        <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
+          <el-form-item prop="password">
+            <span class="svg-container">
+              <svg-icon icon-class="password" />
+            </span>
+            <el-input
+              :key="passwordType"
+              ref="password"
+              v-model="loginForm.password"
+              :type="passwordType"
+              placeholder="请输入密码"
+              name="password"
+              tabindex="2"
+              autocomplete="on"
+              @keyup.native="checkCapslock"
+              @blur="capsTooltip = false"
+              @keyup.enter.native="handleLogin"
+            />
+            <span class="show-pwd" @click="showPwd">
+              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+            </span>
+          </el-form-item>
+        </el-tooltip>
 
-      <div style="position:relative">
-        <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
-        </div>
-        <div class="tips">
-          <span style="margin-right:18px;">Username : editor</span>
-          <span>Password : any</span>
-        </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          Or connect with
-        </el-button>
-      </div>
-    </el-form>
-
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
-      Can not be simulated on local, so please combine you own business simulation! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
+        <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-import SocialSign from './components/SocialSignin'
-import IconSvg from '@/components/Iconfont'
 
 export default {
   name: 'Login',
-  components: { SocialSign, IconSvg },
+  components: { },
   data() {
     const validateUsername = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('账号不能为空！！'))
+      }
       if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
+        callback(new Error('账号输入不正确'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error('密码输入小于6位'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -129,11 +109,11 @@ export default {
     // window.addEventListener('storage', this.afterQRScan)
   },
   mounted() {
-    if (this.loginForm.username === '') {
-      this.$refs.username.focus()
-    } else if (this.loginForm.password === '') {
-      this.$refs.password.focus()
-    }
+    // if (this.loginForm.username === '') {
+    //   this.$refs.username.focus()
+    // } else if (this.loginForm.password === '') {
+    //   this.$refs.password.focus()
+    // }
   },
   destroyed() {
     // window.removeEventListener('storage', this.afterQRScan)
@@ -166,7 +146,7 @@ export default {
               this.loading = false
             })
         } else {
-          console.log('error submit!!')
+          console.log('提交错误!!')
           return false
         }
       })
@@ -179,24 +159,6 @@ export default {
         return acc
       }, {})
     }
-    // afterQRScan() {
-    //   if (e.key === 'x-admin-oauth-code') {
-    //     const code = getQueryObject(e.newValue)
-    //     const codeMap = {
-    //       wechat: 'code',
-    //       tencent: 'code'
-    //     }
-    //     const type = codeMap[this.auth_type]
-    //     const codeName = code[type]
-    //     if (codeName) {
-    //       this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
-    //         this.$router.push({ path: this.redirect || '/' })
-    //       })
-    //     } else {
-    //       alert('第三方登录失败')
-    //     }
-    //   }
-    // }
   }
 }
 </script>
@@ -258,6 +220,28 @@ $light_gray:#eee;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+
+  .login-div {
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    min-height: 20px;
+    padding: 19px;
+    border: 1px solid #e3e3e3;
+    max-width: 400px;
+    margin: 100px auto 0 auto;
+  }
+
+  .img-logo {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
 
   .login-form {
     position: relative;
